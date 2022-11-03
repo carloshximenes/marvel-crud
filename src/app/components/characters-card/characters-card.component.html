@@ -1,0 +1,16 @@
+<p-card [header]="data.name" styleClass="p-card-info">
+    <ng-template pTemplate="header">
+        <img [alt]="data.name" [src]="getImage()">
+    </ng-template>
+    <ng-template pTemplate="subheader">
+        <span class="p-card-tag red">{{ data.comics.items.length || 0 }} Comics</span>
+        <span class="p-card-tag gray">{{ data.series.items.length || 0 }} Series</span>
+        <span class="p-card-tag blue">{{ data.events.items.length || 0 }} Events</span>
+        <span class="p-card-tag orange">{{ data.stories.items.length || 0 }} Stories</span>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <i [ngClass]="isFavorited ? 'pi pi-star-fill' : 'pi pi-star'" style="font-size: 2em" (click)="favoriteHandler()"></i>
+        <button pButton label="See more details" (click)="goToDetails(data.id)"></button>
+        <button *ngFor="let url of data.urls" pButton [label]="url.type" (click)="goTo(url.url)" class="p-button-outlined p-button-help"></button>
+    </ng-template>
+</p-card>

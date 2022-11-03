@@ -1,0 +1,17 @@
+<p-card *ngIf="character" styleClass="characterDetails__container">
+    <div class="characterDetails__header">
+        <img class="characterDetails__header__image" [src]="getImage()" [alt]="character.name" />
+        <div class="characterDetails__header__info">
+            <div class="characterDetails__header__info__name">
+                <span class="characterDetails__title">Super Hero Name</span>
+                <span class="characterDetails__text">{{ character.name }}</span>
+            </div>
+            <div class="characterDetails__header__info__desc">
+                <span class="characterDetails__title">Description</span>
+                <span class="characterDetails__text">{{ character.description || "Not found" }}</span>
+            </div>
+        </div>
+    </div>
+    
+    <ng-template #listContainer></ng-template>
+</p-card>

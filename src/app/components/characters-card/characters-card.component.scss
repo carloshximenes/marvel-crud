@@ -1,0 +1,63 @@
+::ng-deep {
+    .p-card-info {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        border-radius: 22px;
+        margin: 0px 32px;
+
+        img {
+            height: 100%;
+            width: 250px;
+            object-fit: fill;
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+        }
+
+        .p-card-content {
+            flex-wrap: wrap;
+            display: flex;
+            
+        }
+
+        span.p-card-tag {
+            margin: 0.5em 0.2em;
+            padding: 0.5em;
+            color: #fff;
+            border-radius: 5px;
+
+            &.red {
+                background-color: #e23636
+            }
+
+            &.gray {
+                background-color: #504a4a
+            }
+
+            &.blue {
+                background-color: #518cca
+            }
+
+            &.orange {
+                background-color: #f78f3f
+            }
+        }
+
+        .p-card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p-card-footer {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            margin-top: auto;
+            flex-wrap: wrap;
+
+            span {
+                text-transform: capitalize;
+            }
+        }
+    }
+}

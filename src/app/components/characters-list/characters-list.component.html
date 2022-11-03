@@ -1,0 +1,43 @@
+<section>
+    <form [formGroup]="form">
+        <p-card header="Marvel Super Heroes Database">
+            <div class="field">
+                <label for="name" class="block">Name</label>
+                <span class="p-input-icon-right">
+                    <i *ngIf="!isLoading && inputIsInvalid" class="pi pi-exclamation-circle error"></i>
+                    <i *ngIf="isLoading" class="pi pi-spin pi-spinner"></i>
+                    <input type="name" pInputText formControlName="name" type="text"
+                        [attr.aria-describedby]="inputIsInvalid ? 'name-error': 'name-help'"
+                        [ngClass]="{'ng-invalid ng-dirty': inputIsInvalid}">
+                </span>
+                <small *ngIf="!inputIsInvalid" id="name-help" class="block">Enter with a name.</small>
+                <small *ngIf="inputIsInvalid" id="name-error" class="p-error block">A name is
+                    required.</small>
+            </div>
+            <button pButton type="button" label="Search" (click)="searchCharacterHandler()"
+                [disabled]="buttonIsDisabled"></button>
+        </p-card>
+    </form>
+
+
+    <div class="charactersList__loading" *ngIf="isLoading; else content">
+        <i class="pi pi-spin pi-spinner"></i>
+    </div>
+
+    <ng-template #content>
+        <div class="charactersList__container" *ngIf="characters.length > 0; else noDataFounded">
+            <app-characters-card *ngFor="let character of characters" [data]="character"></app-characters-card>
+            <div class="charactersList__container__pagination">
+                <p-button label="Previous" icon="pi pi-angle-left" iconPos="left" [disabled]="!previousPageIsAvailable"
+                    (click)="goToPreviousPage()"></p-button>
+                <p-button label="Next" icon="pi pi-angle-right" iconPos="right" [disabled]="!nextPageIsAvailable"
+                    (click)="goToNextPage()"></p-button>
+            </div>
+        </div>
+        <ng-template #noDataFounded>
+            <div class="charactersList__noData" *ngIf="totalCharactersFounded >= 0">
+                <p>No Data Founded. Please try another name.</p>
+            </div>
+        </ng-template>
+    </ng-template>
+</section>

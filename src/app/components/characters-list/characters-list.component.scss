@@ -1,0 +1,47 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    form {
+        margin: 0px 32px;
+    }
+
+    i {
+        &.error {
+            color: #f44336
+        }
+    }
+}
+
+.charactersList {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+
+        &__pagination {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            align-self: center;
+            ::ng-deep button {
+                width: 150px;
+            }
+        }
+    }
+
+    &__noData,
+    &__loading {
+        margin: 0px 32px;
+        align-self: center;
+    }
+
+    &__loading {
+        i {
+            font-size: 10em;
+        }
+    }
+}

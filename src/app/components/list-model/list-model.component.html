@@ -1,0 +1,7 @@
+<div class="characterDetails__list">
+    <span class="characterDetails__title">{{ title }} ({{ data.items.length }})</span>
+    <ul>
+        <li *ngIf="data.items.length == 0">Not found</li>
+        <li *ngFor="let item of data.items">{{ item.name }}</li>
+    </ul>
+</div>
